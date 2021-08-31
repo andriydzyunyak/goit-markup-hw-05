@@ -5,6 +5,7 @@
   --main-text-color: #757575;
   --secondary-text-color: #ffffff;
   --hover-color: #2196f3;
+  --card-set-margin: 30px;
 }
 
 body {
@@ -27,6 +28,11 @@ ul {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
+}
+
+img {
+  display: block;
+  min-width: 100%;
 }
 
 .container {
@@ -92,8 +98,25 @@ ul {
   margin-left: 93px;
 }
 
+.header-item {
+  position: relative;
+}
+
 .header-list .current {
   color: var(--hover-color);
+}
+
+.header-item .current::after {
+  content: '';
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  top: 46px;
+  left: 0;
+  background-color: var(--hover-color);
+  border: 2px solid;
+  border-radius: 2px;
 }
 
 .header-home-link {
@@ -124,6 +147,7 @@ ul {
 .header-link:hover,
 .header-link:focus {
   color: var(--hover-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-list {
@@ -151,11 +175,13 @@ ul {
 .contact-link:hover,
 .contact-link:focus {
   fill: var(--hover-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:hover,
 .contact-link:focus {
   color: var(--hover-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mail-icon,
@@ -216,21 +242,21 @@ ul {
 .hero-btn:hover,
 .hero-btn:focus {
   background-color: #188ce8;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ---------FEAUTERS----------- */
 
 .feauters-list {
   display: flex;
-  margin: 0 auto;
+  margin-left: calc(-1 * var(--card-set-margin));
+  margin-top: calc(-1 * var(--card-set-margin));
 }
 
-.feauters-item {
-  width: 270px;
-}
-
-.feauters-item:nth-child(-n + 3) {
-  margin-right: 30px;
+.feauters-list > .feauters-item {
+  flex-basis: calc(100% / 4 - var(--card-set-margin));
+  margin-left: var(--card-set-margin);
+  margin-top: var(--card-set-margin);
 }
 
 .feauters-item-title {
@@ -272,20 +298,18 @@ ul {
   letter-spacing: 0.03em;
   color: var(--secondary-title-color);
   margin: 0 auto;
-  margin-top: -94px;
+  margin-top: -91px;
+  margin-bottom: 50px;
 }
 
 .kinds-work-list {
   display: flex;
-  margin-top: 50px;
+  margin-left: calc(-1 * var(--card-set-margin));
 }
 
-.kinds-work-item:not(:last-child) {
-  margin-right: 30px;
-}
-
-.kinds-work-item > img {
-  display: block;
+.kinds-work-list > .kinds-work-item {
+  flex-basis: calc(100% / 3 - var(--card-set-margin));
+  margin-left: var(--card-set-margin);
 }
 
 .label {
@@ -326,24 +350,25 @@ ul {
   letter-spacing: 0.03em;
   color: var(--secondary-title-color);
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 .our-team-list {
   display: flex;
-  margin: 0 auto;
-  margin-top: 50px;
+  margin-left: calc(-1 * var(--card-set-margin));
 }
 
-.our-team-item {
+.our-team-list > .our-team-item {
+  flex-basis: calc(100% / 4 - var(--card-set-margin));
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
-  margin-right: 30px;
+  margin-left: var(--card-set-margin);
   background: #ffffff;
 }
 
 .our-team-item-content {
-  margin-top: 30px;
+  margin-top: var(--card-set-margin);
 }
 
 .our-team-item-title {
@@ -388,11 +413,13 @@ ul {
 .our-team-contact-link:hover,
 .our-team-contact-link:focus {
   background-color: var(--hover-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .our-team-contact-link:hover,
 .our-team-contact-link:focus {
   fill: var(--secondary-text-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ------------OUR CUSTOMER------------- */
@@ -410,12 +437,12 @@ ul {
 
 .customer-list {
   display: flex;
-  margin: 0 auto;
-  justify-content: center;
+  margin-left: calc(-1 * var(--card-set-margin));
 }
 
-.customer-item:not(:last-child) {
-  margin-right: 30px;
+.customer-list > .customer-item {
+  flex-basis: calc(100% / 6 - var(--card-set-margin));
+  margin-left: var(--card-set-margin);
 }
 
 .customer-link {
@@ -434,6 +461,7 @@ ul {
 .customer-link:focus {
   fill: var(--hover-color);
   border: 1px solid var(--hover-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* --------FOOTER-------- */
@@ -480,6 +508,7 @@ ul {
 .footer-contacts-link:hover,
 .footer-contacts-link:focus {
   color: var(--hover-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer .container {
@@ -524,6 +553,7 @@ ul {
 .social-link:hover,
 .social-link:focus {
   background-color: var(--hover-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ----------PROJECT-BUTTON---------- */
@@ -558,22 +588,24 @@ ul {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ---------PROJECT-LIST---------- */
 
-.project-list-wrap {
-  display: flex;
-}
-
 .project-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  margin-left: calc(-1 * var(--card-set-margin));
+  margin-top: calc(-1 * var(--card-set-margin));
 }
 
-.project-item:nth-child(-n + 6) {
-  margin-bottom: 30px;
+.project-list > .project-item {
+  flex-basis: calc(100% / 3 - var(--card-set-margin));
+  margin-left: var(--card-set-margin);
+  margin-top: var(--card-set-margin);
 }
 
 .project-item-content {
@@ -603,10 +635,7 @@ ul {
 .project-item:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
-.project-item-link > img {
-  display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-item {
@@ -615,7 +644,7 @@ ul {
 }
 
 .project-item:hover .project-item-hidden-text {
-  transform: translatex(0);
+  transform: translatey(0);
 }
 
 .project-item-hidden-text {
@@ -631,6 +660,6 @@ ul {
   letter-spacing: 0.03em;
   color: var(--secondary-text-color);
   background-color: rgba(33, 150, 243, 0.9);
-  transform: translatex(-101%);
+  transform: translatey(137%);
   transition: transform 250ms ease;
 }
